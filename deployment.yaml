@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: healthcare-ml
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: healthcare-ml
+  template:
+    metadata:
+      labels:
+        app: healthcare-ml
+    spec:
+      containers:
+      - name: healthcare-ml
+        image: anirudh967/healthcare-ml:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
